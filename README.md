@@ -13,4 +13,3 @@ Built with Visual Code and the ESP-IDF add-on using v4.02 libraries
 ## Authors
 * wizmo ( http://github/wizmo2)
 * based on code from Michal Szutenberg ( http://github.com/szutenberg ) and the esp_idf ad2p_sink example
-
