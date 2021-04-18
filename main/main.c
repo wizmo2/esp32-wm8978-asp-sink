@@ -118,11 +118,11 @@ static esp_err_t i2c_write_reg(uint8_t reg, uint16_t val) {
     ret = i2c_master_cmd_begin(0, cmd, 100 / portTICK_RATE_MS);
     i2c_cmd_link_delete(cmd);
 	
-	if (ret != ESP_OK) {
-		ESP_LOGW(TAG, "I2C write failed");
-	} else {
+    if (ret != ESP_OK) {
+	ESP_LOGW(TAG, "I2C write failed");
+    } else {
         // update local register
-		WM8978_REGVAL_TBL[reg] = val;
+	WM8978_REGVAL_TBL[reg] = val;
         ESP_LOGI(TAG, "I2C Write OK %d=%d (bytes %d %d)", reg, val, buf[0], buf[1]);
     }
 	
@@ -133,7 +133,7 @@ static esp_err_t i2c_write_reg(uint8_t reg, uint16_t val) {
  *  Return local register value
  */
 static uint16_t i2c_read_reg(uint8_t reg) {
-	return WM8978_REGVAL_TBL[reg];
+    return WM8978_REGVAL_TBL[reg];
 }
 
 void app_main()
@@ -157,7 +157,7 @@ void app_main()
 		};
 
     i2c_param_config(0, &i2c_config);
-	i2c_driver_install(0, I2C_MODE_MASTER, false, false, false);
+    i2c_driver_install(0, I2C_MODE_MASTER, false, false, false);
     
     ESP_LOGI(TAG, "DAC uses I2C @%d with sda:%d, scl:%d", I2C_ADDR, i2c_config.sda_io_num, i2c_config.scl_io_num);
 
